@@ -37,7 +37,7 @@ defmodule KOTLWeb.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:kotl, git: "https://github.com/gonzooo/kotl", tag: "v0.1.4"}]
+     {:kotl, git: "https://github.com/gonzooo/kotl", tag: "v0.1.5"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
