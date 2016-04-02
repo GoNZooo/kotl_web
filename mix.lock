@@ -11,7 +11,7 @@
   "gettext": {:hex, :gettext, "0.10.0"},
   "hackney": {:hex, :hackney, "1.6.0"},
   "idna": {:hex, :idna, "1.2.0"},
-  "kotl": {:git, "https://github.com/gonzooo/kotl", "7f1e608eb5a89c11449c9ae967de11504408c06e", [tag: "v0.1.0"]},
+  "kotl": {:git, "https://github.com/gonzooo/kotl", "d7e724961ba0035c733c8d02cc911200b77ff5c9", [tag: "v0.1.4"]},
   "metrics": {:hex, :metrics, "1.0.1"},
   "mimerl": {:hex, :mimerl, "1.0.2"},
   "phoenix": {:hex, :phoenix, "1.1.4"},
