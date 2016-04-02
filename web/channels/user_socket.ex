@@ -3,6 +3,7 @@ defmodule KOTLWeb.UserSocket do
 
   ## Channels
   # channel "rooms:*", KOTLWeb.RoomChannel
+  channel "monitors:lobby", KOTLWeb.MonitorChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
