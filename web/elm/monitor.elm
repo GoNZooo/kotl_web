@@ -10,21 +10,21 @@ type Status
   = Up
   | Down
 
-type alias Monitoree = { name : String
-                       , status : Status
-                       }
+type Kind
+  = Node
+  | Host
+  | Process
+
+type alias Monitoree = {kind : Kind, name : String, status : Status}
+
 type alias Model = List Monitoree
 
 initialModel : Model
-initialModel =
-  [
-   { name = "node"
-   , status = Up
-   }
-  ]
+initialModel = [{kind = Node, name = "node", status = Up}]
 
 type Action
   = NoOp
+  | Update
 
 -- Update
 update : Action -> Model -> Model
@@ -32,14 +32,17 @@ update action model =
   case action of
     NoOp ->
       initialModel
+    _ ->
+      initialModel
 
 -- View
+renderMonitoree : Monitoree -> Html
+renderMonitoree monitoree =
+  text (toString monitoree)
+
 view : Signal.Address Action -> Model -> Html
 view address model =
-  text (toString model)
+  div [] (List.map renderMonitoree model)
 
 main =
-  start { model = initialModel
-        , update = update
-        , view = view
-        }
+  start {model = initialModel, update = update, view = view}
