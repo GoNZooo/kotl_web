@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (style)
 import Html.Events exposing (..)
 import StartApp.Simple exposing (start)
+import String exposing (toLower)
 
 -- Model
 type Status
@@ -38,7 +39,11 @@ update action model =
 -- View
 renderMonitoree : Monitoree -> Html
 renderMonitoree monitoree =
-  text (toString monitoree)
+  let monName = monitoree.name
+      monKind = monitoree.kind |> toString |> toLower
+      monStatus = monitoree.status |> toString |> toLower
+  in
+  span [] [text (monName ++ " (" ++ monKind ++ ") is " ++ monStatus)]
 
 view : Signal.Address Action -> Model -> Html
 view address model =
