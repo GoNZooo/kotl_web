@@ -33,17 +33,35 @@ update action model =
       (monitorees, Effects.none)
 
 -- View
+monitoreeListStyle =
+  style [ ("text-align", "center")
+        , ("font-family", "monospace")
+        , ("font-size", "20px")
+        ]
+
+monitoreeStyle status =
+  let bgColor =
+        case status of
+          "up" ->
+            "lightblue"
+          "down" ->
+            "pink"
+          _ ->
+            "gray"
+  in
+    style [("background-color", bgColor)]
+
 renderMonitoree : Monitoree -> Html
 renderMonitoree monitoree =
   let name = monitoree.name
       kind = monitoree.kind
       status = monitoree.status
   in
-  div [] [text (name ++ " (" ++ kind ++ ") is " ++ status)]
+  div [monitoreeStyle status] [text (name ++ " (" ++ kind ++ ") is " ++ status)]
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  div [] (List.map renderMonitoree model)
+  div [monitoreeListStyle] (List.map renderMonitoree model)
 
 -- Effects
 decodeMonitorees : Json.Decoder Model
