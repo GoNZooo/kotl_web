@@ -34,3 +34,5 @@ config :phoenix, :generators,
 
 config :kotl,
   interval: 10_000
+
+import_config "priv/names.exs"
