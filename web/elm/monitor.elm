@@ -17,7 +17,7 @@ type alias Model = List Monitoree
 init : (Model, Effects Action)
 init =
   ([], Effects.none)
-  
+
 
 type Action
   = NoOp
